@@ -1,0 +1,149 @@
+---
+title: "STA288 Lab 2 Assignment - Inference on a population mean (WINTER 2021)"
+author: "TYPE YOUR NAME HERE (UTORid)"
+output:
+  pdf_document: default
+---
+## Lab 2 Assignment (both .Rmd & .pdf) - Due 11:59pm ET, Thurs, Mar 4, on Quercus
+## Direct link to assignment - [https://q.utoronto.ca/courses/204820/assignments/562070](https://q.utoronto.ca/courses/204820/assignments/562070)
+
+## Graded out of 30 marks
+### *We strongly recommend you complete the Module 3 pre-lab video **before** attempting this lab assignment. It demonstrates use of relevant procedures and R code which will help you as you think through this assignment.*
+
+### *NOTE: If you produce any graphs in R on this assignment, be sure to use clear labels and titles.*
+
+In this lab, you will summarize and interpret research data described in the following paper:
+\small{Regen, T, Isaac, S,  Amorim, A, et al. (2021) "IL-17 controls central nervous system
+autoimmunity through the intestinal microbiome". *Science Immunology*. 6, eaaz6563.} 
+
+The following code reads in the data and initializes the packages you may need for this assignment. Be sure to run this before running the later R code so that the dataset is read in and ready to summarize. If you do not do this, you will end up with error messages. 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(mosaic)
+library(tidyverse)
+
+# Code to read in data sets (NOTE: each figure has a separate file):
+Fig1B_Data<- read_csv("STA288Lab2Data_Regen_etal2021_1B.csv")
+FigS3E_Data<- read_csv("STA288Lab2Data_Regen_etal2021_S3E.csv")
+
+# NOTE: We used the attach() function in the past so we could
+# work with the variables directly. However, this can get us into trouble
+# if we have different data sets with some overlap in variable names. For this lab, we will 
+# leave the data sets unattached so we'll have to refer to both the dataset and the variable 
+# (e.g., Day of onset in Fig1B_Data, we'll need to type Fig1B_Data$Days so R knows to look 
+# in Fig1B_Data for that data)
+
+```
+
+```{r}
+glimpse(Fig1B_Data)
+glimpse(FigS3E_Data)
+
+```
+
+*HELPFUL HINT* - You may wish to include special characters like greek letters (like alpha or mu) or mathematical formulas in your writing in an R Markdown document from time to time. If you copy and paste these symbols from another program (e.g., Word), they will appear in your rmd file, but your document will *not* knit (you will receive an error and knitting will stop) so you will not be able to generate a pdf file from your rmd file. Instead, if you would like to include special characters you should use LaTeX (a typsetting language) code that, when knitted, will show the special characters in your pdf file. For instance, alpha can be typed as $\alpha$, mu can be typed as $\mu$ and xbar can be typed as $\bar{x}$. Mathematical relation symbols can be written as $=$, $<$, $>$, $\le$, $\ge$, $\neq$. A longer list of LaTeX code for typing mathematical symbols is available at [https://www.caam.rice.edu/~heinken/latex/symbols.pdf](https://www.caam.rice.edu/~heinken/latex/symbols.pdf). Here is another useful overview of RMarkdown formatting with some examples of typing equations and special characters - [http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html](http://www.math.mcgill.ca/yyang/regression/RMarkdown/example.html). This may come in handy for your lab assignments, and your project.
+
+## QUESTION 1 (14 marks total)
+This dataset includes measurements of disease course on mice that were immunized with $MOG_{35-55}$ for induction of experimental autoimmune encephalomyelitis (*EAE*). 
+We will focus on *day of onset* for EAE-induced mice that are IL17-deficient, referred to as $IL17^{-/-}$, for parts a-e of this question. The data needed for this question appear in Fig. 1B of the paper.
+
+
+**a.**	*(2 marks)* Why may the day of onset be important to study in *EAE*-induced IL17-deficient ($IL17^{-/-}$) mice?
+
+
+
+**b.**	*(4 marks)* Produce an appropriate data summary of day of onset for $IL17^{-/-}$ mice with induced *EAE*. Interpret your summary in the context of this study. 
+
+```{r}
+
+
+
+
+```
+
+
+**c.**	*(4 marks)* List and assess the conditions for a t confidence interval for $\mu$, the mean day of onset for $IL17^{-/-}$ EAE mice. 
+
+
+
+```{r}
+
+```
+
+
+
+**d.**	*(2 marks)* Use R to construct a *95%* t confidence interval for $\mu$, the mean day of onset for $IL17^{-/-}$ EAE mice.
+
+```{r}
+
+```
+
+
+**e.**	*(2 marks)* Regardless to your answer in (c) (i.e., even if you do not think the conditions are reasonable here), assume the conditions are met to answer this part. Briefly describe what is wrong with the interpretation "There is a 95% chance that $\mu$, the mean day of onset for $IL17^{-/-}$ EAE mice, falls in the interval produced in (d)." and write down the correct interpretation of the interval.
+
+
+
+
+## QUESTION 2 (16 marks total)
+
+IL-17A and IL-17F are implicated in intestinal health, and alterations in the gut microbiome can modulate EAE susceptibility. Therefore, Regen et al. (2021) were also interested in the composition of the gut microbiota in IL17-deficient mice. One of the measures used to measure the average bacterial species diversity in the gut of IL-17 deficient mice was the $\alpha$-diversity. The data needed for this question appear in Fig. S3E of the paper.
+
+**a.** *(4 marks)*   Produce an appropriate data summary to compare $\alpha$-diversity for IL17-deficient mice and $IL17^{+/-}$ mice. Interpret your summary in the context of this study. 
+```{r}
+
+
+```
+
+
+
+**b.**	*(2 marks)* Use R to construct a *90%* t confidence interval for $\mu$, the mean $\alpha$-diversity for $IL17^{-/-}$ EAE mice only.
+
+```{r}
+
+```
+
+
+**c.**	*(3 marks)* Is it appropriate to use a t confidence interval to estimate $\mu$, the mean $\alpha$-diversity for $IL17^{-/-}$ EAE mice? Be sure to justify your answer.
+
+```{r}
+
+```
+
+
+
+
+**d.**	*(3 marks)* Regardless to your answer in (c), assume for the purposes of this part that the 98% t confidence interval computed in (b) is appropriate. Suppose the researchers wanted to report a more precise estimate for $\mu$, the mean $\alpha$-diversity for $IL17^{-/-}$ mice. Suggest three strategies they could use to acheive this. Be sure to write your answer in the context of the study.  
+
+
+
+**e.** *(4 marks)* IL-17-sufficient (WT) mice would be expected to exhibit an $\alpha$-diversity of 4. State the null and alternative hypotheses of a test that explores if IL17-deficient mice exhibit differences in typical $\alpha$-diversity compared to the expected $\alpha$-diversity in WT mice based on these data (symbols not needed here but you should define any terms or values you use in the context of the study and if you use symbols, use LaTex code as explained in the Helpful Hint at the top of this assignment). 
+
+WRITE YOUR HYPOTHESES HERE:
+
+
+
+
+
+
+
+The R code you would need to run this test is as follows:
+
+```{r}
+t.test(FigS3E_Data$Alpha_diversity[FigS3E_Data$Group=="IL17-/-"], alternative="two.sided",mu=4)
+```
+
+
+
+
+
+
+__________________________________________________________________________
+THIS IS THE END OF LAB ASSIGNMENT 2
+```{r echo = FALSE}
+# for grader use only (do not remove or edit this box)
+runif(1,0,1)
+date()
+```
+
